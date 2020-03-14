@@ -21,14 +21,22 @@ class App extends Component{
 
     render(){
         return(
-            <div>
-                <h1></h1>
-                <h3>{this.state.perfil.name}</h3>
-                <h3>{this.state.perfil.email}</h3>
-                <h3>{this.state.perfil.done.toString()}</h3>
-                <button onClick={this.handleClick}>
-                        click
-                </button>
+            <div className='container'>
+                <div className="row">
+                    <div className="col-md-12">
+                        <img src='../static/img/boba-feat-chibi.jpg' />
+                        <h1 className="text-center">Configuracion de react con webpack</h1>
+                        <h3 className="text-center">{this.state.perfil.name}</h3>
+                        <h3 className="text-center">{this.state.perfil.email}</h3>
+                        <h3 className="text-center">{this.state.perfil.done.toString()}</h3>
+                        <button
+                            className="btn btn-primary btn-block" 
+                            onClick={this.handleClick}
+                        >
+                            Dame click
+                        </button>  
+                    </div>
+                </div>
             </div>
         )
     }
