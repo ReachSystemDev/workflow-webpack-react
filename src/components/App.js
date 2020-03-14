@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import logo from '../static/img/boba-fet-chibi.jpg';
 
 class App extends Component{
     state = {
@@ -23,8 +23,10 @@ class App extends Component{
         return(
             <div className='container'>
                 <div className="row">
-                    <div className="col-md-12">
-                        <img src='../static/img/boba-feat-chibi.jpg' />
+                    <div className="col-md-6 shadow-sm">
+                        <img src={logo} />
+                    </div>
+                    <div className="col-md-6">
                         <h1 className="text-center">Configuracion de react con webpack</h1>
                         <h3 className="text-center">{this.state.perfil.name}</h3>
                         <h3 className="text-center">{this.state.perfil.email}</h3>

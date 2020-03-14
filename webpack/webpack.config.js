@@ -30,28 +30,13 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(jpg|png|gif|jpeg)$/,
-                use:[
-                    {
-                        loader: 'file-loader',
-                        options:{
-                            name: '[name].[ext]',
-                            outputPath: 'static/img/',
-                            useRelativePath: true
-                        }
-                    }
-                ]
-            },
-            {
                 test: /\.(gif|png|jpe?g|svg)$/i,
                 use: [
-                    'file-loader',
+                    'file-loader?name=static/img/[name].[ext]',
+                    // 'file-loader',
                     {
                     loader: 'image-webpack-loader',
                     options: {
-                        name: '[name].[ext]',
-                        outputPath: 'static/img/',
-                        useRelativePath: true,
                         mozjpeg: {
                         progressive: true,
                         quality: 65
@@ -79,7 +64,15 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/index.html'
+            template: './src/index.html',
+            minify:{
+                collapseWhitespace: true,
+                removeComments: true,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                useShortDoctype: true
+            }
         }),
         new MiniCssExtractPlugin({
             filename: 'css/[name]-styles.css'
